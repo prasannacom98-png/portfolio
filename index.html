@@ -1,0 +1,401 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gihan Prasanna | Portfolio</title>
+    <!-- Google Fonts & FontAwesome Icons සඳහා Links -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0d7c75; /* ඔයාගේ 4ටෝ එකේ පසුබිම් වර්ණය */
+            --secondary-color: #0a5f59;
+            --text-dark: #2d3748;
+            --text-light: #4a5568;
+            --bg-light: #f7fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 80px 0 60px 0;
+            text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid var(--white);
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        /* Main Content Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        @media (min-width: 768px) {
+            .main-layout {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 10px;
+        }
+
+        /* Profile & Experience */
+        .profile-text {
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .timeline-role {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .timeline-company {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Education Exam Tables */
+        .exam-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .exam-table th, .exam-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .exam-table th {
+            background-color: #f7fafc;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Skills Badges */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-badge {
+            background-color: #e6fffa;
+            color: var(--secondary-color);
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #b2f5ea;
+        }
+
+        /* Personal Info List */
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #edf2f7;
+            font-size: 0.9rem;
+        }
+
+        .info-list li span:first-child {
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            background-color: #edf2f7;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <!-- ඔයාගේ Photo එක මෙතනට සම්බන්ධ වෙනවා -->
+            <img src="profile.png" alt="Gihan Prasanna" class="profile-img">
+            <h1>GIHAN PRASANNA KARUNATHILAKA</h1>
+            <p>ICT Technician | Professional</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:gihanprasanna955@gmail.com">gihanprasanna955@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>076 701 3643 / 076 931 3643</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Mahiyanganaya, Sri Lanka</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-layout">
+            
+            <!-- Left Column: Profile, Experience, Education -->
+            <div class="left-column">
+                
+                <!-- About Me -->
+                <div class="card">
+                    <h2 class="section-title"><i class="fa-solid fa-user"></i> Profile</h2>
+                    <p class="profile-text">
+                        I am a dedicated, organized and methodical individual. I have good interpersonal skills, am an excellent team worker and am keen and very willing to learn and develop new skills. I am reliable and dependable and often seek new responsibilities within a wide range of employment areas. I have an active and dynamic approach to work and getting things done. I am determined and decisive. I identify and develop opportunities.
+                    </p>
+                </div>
+
+                <!-- Experience -->
+                <div class="card">
+                    <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Employment History</h2>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Dec 2023 - Dec 2024</div>
+                        <div class="timeline-role">Team Member - Mechanic</div>
+                        <div class="timeline-company">MAS ACTIVE PVT LTD - MAS KREEDA SHADELINE, GEMUNUPURA</div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="card">
+                    <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education & Qualifications</h2>
+                    
+                    <!-- NVQ Course -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">Dec 2018</div>
+                        <div class="timeline-role">Information & Communication Technology Technician (NVQ Level 4)</div>
+                        <div class="timeline-company">ICT Technician - Theory: C | Practical: C | Final Result: Merit</div>
+                    </div>
+
+                    <!-- A/L -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">Mar 2015 - Jan 2018</div>
+                        <div class="timeline-role">G.C.E. (A/L) Examination</div>
+                        <div class="timeline-company">B/Gemunupura Maha Vidyalaya, Mahiyanganaya</div>
+                        <table class="exam-table">
+                            <tr><th>Subject</th><th>Grade</th></tr>
+                            <tr><td>Political Science</td><td>B</td></tr>
+                            <tr><td>History</td><td>C</td></tr>
+                            <tr><td>Sinhala</td><td>C</td></tr>
+                            <tr><td>General IT (GIT)</td><td>B</td></tr>
+                        </table>
+                    </div>
+
+                    <!-- O/L -->
+                    <div class="timeline-item" style="margin-bottom: 0;">
+                        <div class="timeline-date">Jan 2004 - Dec 2014</div>
+                        <div class="timeline-role">G.C.E. (O/L) Examination</div>
+                        <div class="timeline-company">B/Gemunupura Maha Vidyalaya, Mahiyanganaya</div>
+                        <table class="exam-table">
+                            <tr><th>Subject</th><th>Grade</th></tr>
+                            <tr><td>Buddhism</td><td>A</td></tr>
+                            <tr><td>Agri. & Food Technology</td><td>A</td></tr>
+                            <tr><td>Art</td><td>C</td></tr>
+                            <tr><td>Sinhala Language & Lit.</td><td>C</td></tr>
+                            <tr><td>Mathematics</td><td>C</td></tr>
+                            <tr><td>Science</td><td>C</td></tr>
+                            <tr><td>Citizenship Education</td><td>C</td></tr>
+                            <tr><td>History</td><td>C</td></tr>
+                            <tr><td>English</td><td>S</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Skills, Languages, Personal Details -->
+            <div class="right-column">
+                
+                <!-- Skills -->
+                <div class="card">
+                    <h2 class="section-title"><i class="fa-solid fa-gear"></i> Skills</h2>
+                    <div class="skills-container">
+                        <span class="skill-badge">Computer Skills</span>
+                        <span class="skill-badge">Leadership Skills</span>
+                        <span class="skill-badge">Management Skills</span>
+                        <span class="skill-badge">Problem-Solving</span>
+                        <span class="skill-badge">Customer Service</span>
+                        <span class="skill-badge">Communication</span>
+                        <span class="skill-badge">Time Management</span>
+                        <span class="skill-badge">Active Listening</span>
+                        <span class="skill-badge">Hard Working</span>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="card">
+                    <h2 class="section-title"><i class="fa-solid fa-language"></i> Languages</h2>
+                    <div class="skills-container">
+                        <span class="skill-badge" style="background-color: #edf2f7; color: var(--text-dark); border: 1px solid #cbd5e0;">Sinhala</span>
+                        <span class="skill-badge" style="background-color: #edf2f7; color: var(--text-dark); border: 1px solid #cbd5e0;">English</span>
+                    </div>
+                </div>
+
+                <!-- Personal Info -->
+                <div class="card">
+                    <h2 class="section-title"><i class="fa-solid fa-address-card"></i> Personal Details</h2>
+                    <ul class="info-list">
+                        <li><span>Date of Birth</span><span>May 24, 1998</span></li>
+                        <li><span>Gender</span><span>Male</span></li>
+                        <li><span>Civil Status</span><span>Unmarried</span></li>
+                        <li><span>Nationality</span><span>Sri Lankan</span></li>
+                        <li><span>Home Town</span><span>Girandurukotte</span></li>
+                    </ul>
+                </div>
+
+                <!-- Hobbies -->
+                <div class="card">
+                    <h2 class="section-title"><i class="fa-solid fa-heart"></i> Hobbies</h2>
+                    <div class="skills-container">
+                        <span class="skill-badge" style="background-color: #fffaf0; color: #dd6b20; border: 1px solid #fbd38d;"><i class="fa-solid fa-book"></i> Reading Books</span>
+                        <span class="skill-badge" style="background-color: #fffaf0; color: #dd6b20; border: 1px solid #fbd38d;"><i class="fa-solid fa-gamepad"></i> Playing Games</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Gihan Prasanna. All Rights Reserved. Designed with ❤️</p>
+        </div>
+    </footer>
+
+</body>
+</html>
